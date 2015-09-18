@@ -6,7 +6,7 @@ package yk.GA_Colville_Func;
 public class Individual {
     //value variable
     private int x;
-    private int fitness = 0;
+    private double fitness = 0;
 
     //number of variable
     private int size = 4;
@@ -61,7 +61,7 @@ public class Individual {
         return solution;
     }
 
-    public int getFitness() {
+    public double getFitness() {
         if (fitness == 0) {
             fitness = FitnessCalc.getFitness(this);
         }
