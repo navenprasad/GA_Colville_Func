@@ -48,8 +48,6 @@ public class Algorithm {
 
         int startPos = (int) (Math.random() * parent1.size());
         int endPos = (int) (Math.random() * parent1.size());
-        System.out.println("start Pos : " + startPos);
-        System.out.println("end Pos : " + endPos);
 
         // Loop through genes
         for (int i = 0; i < child.size(); i++) {
@@ -70,9 +68,9 @@ public class Algorithm {
                 child.setVariable(i, parent2.getVariable(i));
             }
         }
-        System.out.println("Parent 1 : " + parent1.getVariable(0) + ", " + parent1.getVariable(1) + ", " + parent1.getVariable(2) + ", " + parent1.getVariable(3));
-        System.out.println("Parent 2 : " + parent2.getVariable(0) + ", " + parent2.getVariable(1) + ", " + parent2.getVariable(2) + ", " + parent2.getVariable(3));
-        System.out.println("Child    : " + child.getVariable(0) + ", " + child.getVariable(1) + ", " + child.getVariable(2) + ", " + child.getVariable(3));
+        //System.out.println("Parent 1 : " + parent1.getVariable(0) + ", " + parent1.getVariable(1) + ", " + parent1.getVariable(2) + ", " + parent1.getVariable(3));
+        //System.out.println("Parent 2 : " + parent2.getVariable(0) + ", " + parent2.getVariable(1) + ", " + parent2.getVariable(2) + ", " + parent2.getVariable(3));
+        //System.out.println("Child    : " + child.getVariable(0) + ", " + child.getVariable(1) + ", " + child.getVariable(2) + ", " + child.getVariable(3));
 
         return child;
     }

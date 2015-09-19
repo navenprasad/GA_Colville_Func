@@ -11,6 +11,10 @@ public class FitnessCalc {
                 + ((1 - x3) * (1 - x3)) + 10.1 * (((x2 - 1) * (x2 - 1)) * ((x4 - 1) * (x4 - 1))) + 19.8 * (x2 - 1) * (x4 - 1);
     }
 
+    static double getSolution() {
+        return solution;
+    }
+
     // Calculate inidividuals fittness by comparing it to our candidate solution
     static double getFitness(Individual individual) {
         double fitness = Math.abs(individual.getSolution() - solution);

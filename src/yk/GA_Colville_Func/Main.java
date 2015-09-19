@@ -18,23 +18,24 @@ public class Main {
         }*/
 
         // Initialize population
-        Population pop = new Population(50, true);
+        Population pop = new Population(100, true);
         System.out.println("Initial solution: " + pop.getFittest().getFitness());
 
         // Evolve population for 100 generations
         int generationCount = 0;
         pop = Algorithm.evolvePopulation(pop);
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 50; i++) {
             generationCount++;
-            System.out.println("Generation: " + generationCount + " Fittest: " + pop.getFittest().getFitness());
+            System.out.println("Generation: " + generationCount + " Local Minimum Value: " + pop.getFittest().getFitness());
             pop = Algorithm.evolvePopulation(pop);
         }
 
         // Print final results
         System.out.println("Finished");
-        System.out.println("Final solution: " + pop.getFittest().getFitness());
-        System.out.println("Solution:");
-        System.out.println(pop.getFittest());
+        System.out.println("Final Outcome:");
+        System.out.println(pop.getFittest().getVariableList());
+        System.out.println("Global Minimum Value : " + pop.getFittest().getFitness());
+        System.out.println("Best global minimum value : " + FitnessCalc.getSolution());
     }
 }

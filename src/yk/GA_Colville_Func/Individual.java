@@ -30,7 +30,7 @@ public class Individual {
 
             variables[i] = x;
         }
-        System.out.println("New Individual generated : " + this.getVariable(0) + ", " + this.getVariable(1) + ", " + this.getVariable(2) + ", " + this.getVariable(3));
+        //System.out.println("New Individual generated : " + this.getVariable(0) + ", " + this.getVariable(1) + ", " + this.getVariable(2) + ", " + this.getVariable(3));
     }
 
     public int getConstraint() {
@@ -51,10 +51,10 @@ public class Individual {
     }
 
     public double getSolution() {
-        int x1 = variables[0];
-        int x2 = variables[1];
-        int x3 = variables[2];
-        int x4 = variables[3];
+        int x1 = this.variables[0];
+        int x2 = this.variables[1];
+        int x3 = this.variables[2];
+        int x4 = this.variables[3];
 
         double solution = (100 * (x2 - (x1 * x1)) * (x2 - (x1 * x1))) + ((1 - x1) * (1 - x1)) + 90 * (x4 - (x3 * x3)) * (x4 - (x3 * x3))
                         + ((1 - x3) * (1 - x3)) + 10.1 * (((x2 - 1) * (x2 - 1)) * ((x4 - 1) * (x4 - 1))) + 19.8 * (x2 - 1) * (x4 - 1);
@@ -67,5 +67,16 @@ public class Individual {
             fitness = FitnessCalc.getFitness(this);
         }
         return fitness;
+    }
+
+    public String getVariableList() {
+        int x1 = this.variables[0];
+        int x2 = this.variables[1];
+        int x3 = this.variables[2];
+        int x4 = this.variables[3];
+
+        String msg = "(x1, x2, x3, x4) = " + "(" + x1 + ", " + x2 + ", " + x3 + ", " + x4 +")";
+
+        return msg;
     }
 }
