@@ -35,6 +35,7 @@ public class Population {
                 fittest = getIndividual(i);
             }
         }
+
         return fittest;
     }
 

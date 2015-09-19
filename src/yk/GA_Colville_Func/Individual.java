@@ -17,7 +17,7 @@ public class Individual {
 
     public Individual() {
         for(int i = 0; i < size(); i++) {
-            variables[i] = size + 100;
+            variables[i] = -99;
         }
     }
 
@@ -30,6 +30,7 @@ public class Individual {
 
             variables[i] = x;
         }
+        System.out.println("New Individual generated : " + this.getVariable(0) + ", " + this.getVariable(1) + ", " + this.getVariable(2) + ", " + this.getVariable(3));
     }
 
     public int getConstraint() {
