@@ -22,34 +22,40 @@ public class Individual {
     }
 
     //Generate random variable
-    public void generateIndividual() {
+    public void generateVariables() {
         for(int i = 0; i < size(); i++) {
+            //If constraint is 10, x value will be between -10 and 10
             x = (int) Math.round(Math.random()*constraint);
+
             //Randomize between positive and negative number by multiplying with 1 or -1
             x *= Math.floor(Math.random()*2) == 1 ? 1 : -1;
 
             variables[i] = x;
         }
-        //System.out.println("New Individual generated : " + this.getVariable(0) + ", " + this.getVariable(1) + ", " + this.getVariable(2) + ", " + this.getVariable(3));
     }
 
+    //get the constraint value
     public int getConstraint() {
         return constraint;
     }
 
+    //get the size of individual
     public int size() {
         return size;
     }
 
+    //get a particular x value, ex:0 = x1, 1 = x2, 2 = x3, 3 = x4
     public int getVariable(int index) {
         return variables[index];
     }
 
+    //set x value
     public void setVariable(int index, int value) {
         variables[index] = value;
         fitness = 0;
     }
 
+    //Get the global minimum value of this particular individual(combination of x)
     public double getSolution() {
         int x1 = this.variables[0];
         int x2 = this.variables[1];
@@ -62,6 +68,7 @@ public class Individual {
         return solution;
     }
 
+    //Compare the global minimum value with the best global minimum value, 0
     public double getFitness() {
         if (fitness == 0) {
             fitness = FitnessCalc.getFitness(this);
@@ -69,6 +76,7 @@ public class Individual {
         return fitness;
     }
 
+    //Print out all the x value contained in this object
     public String getVariableList() {
         int x1 = this.variables[0];
         int x2 = this.variables[1];

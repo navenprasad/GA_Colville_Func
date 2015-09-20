@@ -11,12 +11,13 @@ public class Population {
     // Create a population
     public Population(int populationSize, boolean initialise) {
         individualList = new Individual[populationSize];
+
         // Initialise population
         if (initialise) {
             // Loop and create individuals
             for (int i = 0; i < size(); i++) {
                 Individual newIndividual = new Individual();
-                newIndividual.generateIndividual();
+                newIndividual.generateVariables();
                 saveIndividual(i, newIndividual);
             }
         }
@@ -27,6 +28,7 @@ public class Population {
         return individualList[index];
     }
 
+    //Compare each individual in the population to get the fittest individual
     public Individual getFittest() {
         Individual fittest = individualList[0];
         // Loop through individuals to find fittest
@@ -39,10 +41,12 @@ public class Population {
         return fittest;
     }
 
+    //get the population size
     public int size() {
         return individualList.length;
     }
 
+    //save the individual into population followed given by index
     public void saveIndividual(int index, Individual individual) {
         individualList[index] = individual;
     }

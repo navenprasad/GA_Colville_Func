@@ -6,6 +6,7 @@ import java.util.Vector;
  * Created by yk on 18/9/2015.
  */
 public class Algorithm {
+
     private static final double mutationRate = 0.015;
     private static final int tournamentSize = 5;
     private static final boolean elitism = true;
@@ -68,9 +69,6 @@ public class Algorithm {
                 child.setVariable(i, parent2.getVariable(i));
             }
         }
-        //System.out.println("Parent 1 : " + parent1.getVariable(0) + ", " + parent1.getVariable(1) + ", " + parent1.getVariable(2) + ", " + parent1.getVariable(3));
-        //System.out.println("Parent 2 : " + parent2.getVariable(0) + ", " + parent2.getVariable(1) + ", " + parent2.getVariable(2) + ", " + parent2.getVariable(3));
-        //System.out.println("Child    : " + child.getVariable(0) + ", " + child.getVariable(1) + ", " + child.getVariable(2) + ", " + child.getVariable(3));
 
         return child;
     }
@@ -95,24 +93,32 @@ public class Algorithm {
         Population tournament = new Population(tournamentSize, false);
 
         Vector<Integer> prevRandomId = new Vector<Integer>();
-        //int[] prevRandomId = new int[tournamentSize];
         boolean check = true;
+        int count = 0;
+
         // For each place in the tournament get a random individual
-        for (int i = 0; i < tournamentSize; i++) {
+        for (int i = 0; i < tournamentSize + count; i++) {
             int randomId = (int) (Math.random() * pop.size());
-            for(int ii = 0 ; ii < prevRandomId.size(); ii++) {
-                int temp = (int) prevRandomId.get(ii);
+            //To make sure the selected randomId is not repetitive
+            int ii = 0;
+            while(ii < prevRandomId.size()) {
+                int temp = prevRandomId.get(ii);
+                ii++;
                 if(randomId != temp) {
                     check = true;
                 } else {
+                    count++;
                     check = false;
                     break;
                 }
             }
+
             if (check) {
-                tournament.saveIndividual(i, pop.getIndividual(randomId));
+                prevRandomId.add(randomId);
+                tournament.saveIndividual(i - count, pop.getIndividual(randomId));
             }
         }
+        prevRandomId.removeAllElements();
         // Get the fittest
         Individual fittest = tournament.getFittest();
         return fittest;
