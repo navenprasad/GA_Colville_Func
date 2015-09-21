@@ -5,7 +5,7 @@ please kindly visit his site for more explanation on Genetic Algorithm,
 link:http://www.theprojectspot.com/tutorial-post/creating-a-genetic-algorithm-for-beginners/3
 
 Hi, I am Yk, currently studying in Multimedia University, Malaysia for my Artificial Intelligence degree. 
-I and my teammate, Wey Yeong build this Genetic Algorithm program for my assignment submission.
+My teammate, Wey Yeong and I build this Genetic Algorithm program for our assignment submission.
 
 Feel free to utilize this code for both academic and commercial purpose if you find it useful.
 
