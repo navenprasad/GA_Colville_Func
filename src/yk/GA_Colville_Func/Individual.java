@@ -6,7 +6,7 @@ package yk.GA_Colville_Func;
 public class Individual {
     //value variable
     private int x;
-    private double fitness = 0;
+    private double fitness;
 
     //number of variable
     private int size = 4;
@@ -52,7 +52,7 @@ public class Individual {
     //set x value
     public void setVariable(int index, int value) {
         variables[index] = value;
-        fitness = 0;
+        fitness = getSolution();
     }
 
     //Get the global minimum value of this particular individual(combination of x)

@@ -7,9 +7,25 @@ import java.util.Vector;
  */
 public class Algorithm {
 
-    private static final double mutationRate = 0.015;
-    private static final int tournamentSize = 5;
+    private static double mutationRate = 0.015;
+    private static int tournamentSize = 2;
     private static final boolean elitism = true;
+
+    public void setTournamentSize(int i) {
+        tournamentSize = i;
+    }
+
+    public void setMutationRate(double i) {
+        mutationRate = i;
+    }
+
+    public static int getTournamentSize() {
+        return tournamentSize;
+    }
+
+    public static  double getMutationRate() {
+        return mutationRate;
+    }
 
     public static Population evolvePopulation(Population pop) {
         Population newPopulation = new Population(pop.size(), false);
@@ -119,7 +135,8 @@ public class Algorithm {
             }
         }
         prevRandomId.removeAllElements();
-        // Get the fittest
+
+        // Get the fittest individual for crossover
         Individual fittest = tournament.getFittest();
         return fittest;
     }
